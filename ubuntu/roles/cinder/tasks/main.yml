@@ -1,0 +1,14 @@
+---
+
+- name: install Cinder for Ubuntu
+  tags: ubuntu
+  apt:
+    name: cinder-backup
+    state: latest
+  when: ansible_distribution == "Ubuntu"
+
+- name: "Cinder- Restarting/Enabling"
+  service:
+    name: cinder-backup
+    state: restarted
+  when: ansible_distribution == "Ubuntu"

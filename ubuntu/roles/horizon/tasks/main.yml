@@ -1,0 +1,8 @@
+---
+
+- name: install Horizon for Ubuntu
+  tags: ubuntu
+  apt:
+    name: openstack-dashboard
+    state: latest
+  when: ansible_distribution == "Ubuntu"

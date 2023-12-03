@@ -1,0 +1,14 @@
+---
+
+- name: install Neutron for Ubuntu
+  tags: ubuntu
+  apt:
+    name: neutron-openvswitch-agent
+    state: latest
+  when: ansible_distribution == "Ubuntu"
+
+- name: "Neutron- Restarting/Enabling"
+  service:
+    name: nova-compute
+    state: restarted
+  when: ansible_distribution == "Ubuntu"
